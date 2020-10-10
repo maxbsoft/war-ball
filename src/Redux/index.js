@@ -11,6 +11,7 @@ export const history = createBrowserHistory()
 
 export const reducers = combineReducers({
   startup: require('./StartupRedux').reducer,
+  auth: require('./AuthRedux').reducer,
   router: connectRouter(history),
 })
 

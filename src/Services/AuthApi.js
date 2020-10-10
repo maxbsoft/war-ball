@@ -32,6 +32,18 @@ const create = () => {
   // Since we can't hide from that, we embrace it by getting out of the
   // way at this level.
   //
+  const getIdToken = () => {
+    return firebase.auth().currentUser.getIdToken();
+  }
+
+  const setPersistenceLocal = () => {
+    console.log("[AuthApi]", "setPersistenceLocal")
+    return firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+  }
+
+  const getCurrentUser = () => {
+    return firebase.auth().currentUser;
+  }
 
   const signInAnonymously = () => {
     return firebase.auth().signInAnonymously()
@@ -129,6 +141,9 @@ const create = () => {
     updateUserSpecialField,
     getServerTime,
     getVersion,
+    getCurrentUser,
+    setPersistenceLocal,
+    getIdToken
   }
 
 }

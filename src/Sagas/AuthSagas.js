@@ -4,6 +4,9 @@ import AuthActions, { AuthSelectors } from '../Redux/AuthRedux'
 
 export function * authSignInAnonymouslyRequest (authApi, { }) {
   try{
+
+    yield call(authApi.setPersistenceLocal);
+
     const authResponse = yield call(authApi.signInAnonymously);
     console.log("[AuthSagas]", "authSignInAnonymouslyRequest", "authResponse:", authResponse ? true : false);
     /*
@@ -36,6 +39,9 @@ export function * authSignInAnonymouslyRequest (authApi, { }) {
 
 export function * authSignInWithEmailAndPasswordRequest (authApi, { email, password }) {
   try{
+
+    yield call(authApi.setPersistenceLocal);
+
     const authResponse = yield call(authApi.signInWithEmailAndPassword, email, password);
     console.log("[AuthSagas]", "authSignInWithEmailAndPasswordRequest", "authResponse:", authResponse);
     const user = JSON.parse(JSON.stringify(authResponse.user));
@@ -49,6 +55,9 @@ export function * authSignInWithEmailAndPasswordRequest (authApi, { email, passw
 
 export function * authCreateUserWithEmailAndPasswordRequest (authApi, { email, password, displayName }) {
   try{
+
+    yield call(authApi.setPersistenceLocal);
+    
     const authResponse = yield call(authApi.createUserWithEmailAndPassword, email, password);
     console.log("[AuthSagas]", "authCreateUserWithEmailAndPasswordRequest", "authResponse:", authResponse);
     const user = JSON.parse(JSON.stringify(authResponse.user));
