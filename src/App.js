@@ -1,18 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Provider } from 'react-redux'
+import createStore, { history } from './Redux'
+import { ConnectedRouter } from 'connected-react-router'
+import Routes from './Routes'
 import './App.css';
+
+export const store = createStore({})
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Coming soon!
-        </p>
-      
-      </header>
-    </div>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <Routes/>
+      </ConnectedRouter>
+    </Provider>
   );
 }
 
