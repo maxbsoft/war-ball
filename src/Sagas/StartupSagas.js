@@ -4,8 +4,8 @@ import * as ConnectedRouter from 'connected-react-router'
 import Config from '../Config'
 
 // process STARTUP actions
-export function * startup (action) {
-  console.log("STURTUP", action);
+export function * startup (api, authApi) {
+  console.log("STURTUP", api, authApi);
 
   let pathname = document.location.pathname;
   console.log("pathname:", pathname)
@@ -13,7 +13,7 @@ export function * startup (action) {
     yield put(ConnectedRouter.replace("/"))
   }
 
-  yield fork(startupNavReadyMonitor);
+  yield fork(startupNavReadyMonitor, api, authApi);
   // loading code api, auth, etc
 
   // fake delay
@@ -21,7 +21,7 @@ export function * startup (action) {
   yield put(StartupActions.startupSuccess());
 }
 
-function * startupNavReadyMonitor(action) {
+function * startupNavReadyMonitor(api, authApi) {
   let payload = yield take(StartupTypes.STARTUP_NAV_READY);
   console.log("startupNavReady");
 

@@ -6,7 +6,7 @@ function SplashScreen() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>Splash</p>
+        <p>War Ball - fun online game!</p>
       </header>
     </div>
   );
