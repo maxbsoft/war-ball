@@ -2,7 +2,7 @@
 
 The online open source browser game is developed for mood with the use of reactjs, react-three-fiber, firebase.
 
-[https://war-ball.web.app](PLAY)
+[PLAY](https://war-ball.web.app)
 
 ## Install
 
