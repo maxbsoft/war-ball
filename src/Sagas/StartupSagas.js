@@ -54,7 +54,7 @@ function * authSignInAnonymouslySuccessMonitor(api, authApi){
 
 function * authSignInAnonymouslyFailureMonitor(api, authApi){
   const payload = yield take(AuthTypes.AUTH_SIGN_IN_ANONYMOUSLY_FAILURE);
-  console.log("[StartupSagas]", "authSignInAnonymouslyFailureMonitor", "payload:", payload)
+  console.log("[StartupSagas]", "authSignInAnonymouslyFailureMonitor", "payload:", payload);
 
   yield fork(startupDone, api, authApi);
 }
